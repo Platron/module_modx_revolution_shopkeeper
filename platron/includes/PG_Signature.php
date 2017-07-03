@@ -85,7 +85,7 @@ class PG_Signature {
 		foreach ( $arrParams as $key => $val ) {
 			
 			$i++;
-			if ( 'pg_sig' == $key )
+			if ( 'pg_sig' === $key )
 				continue;
 				
 			/**
@@ -167,7 +167,7 @@ class PG_Signature {
 		foreach ( $xml->children() as $tag ) {
 			
 			$i++;
-			if ( 'pg_sig' == $tag->getName() )
+			if ( 'pg_sig' === $tag->getName() )
 				continue;
 				
 			/**
@@ -176,7 +176,7 @@ class PG_Signature {
 			 */
 			$name = $parent_name . $tag->getName().sprintf('%03d', $i);
 
-			if ( $tag->children()->count() > 0) {
+			if ( $tag->children()->count() > 0 ) {
 				$arrParams = array_merge($arrParams, self::makeFlatParamsXML($tag, $name));
 				continue;
 			}
