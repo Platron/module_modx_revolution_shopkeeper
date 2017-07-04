@@ -172,11 +172,10 @@ class CreatePaymentAction extends Action
 	{
 		$receipt = new OfdReceiptRequest($this->modx->getOption('merchantId', $this->properties, null), $paymentId);
 		foreach ($this->getOrderPurchases($order) as $purchase) {
-			$purchaseData = $purchase->toArray();
 			$ofdItem = new OfdReceiptItem();
-			$ofdItem->label = substr($purchaseData['name'], 0, 128);
-			$ofdItem->price = round($purchaseData['price'], 2);
-			$ofdItem->quantity = $purchaseData['count'];
+			$ofdItem->label = substr($purchase->get('name'), 0, 128);
+			$ofdItem->price = round($purchase->get('price'), 2);
+			$ofdItem->quantity = $purchase->get('count');
 			$ofdItem->amount = round($ofdItem->price * $ofdItem->quantity, 2);
 			$ofdItem->vat = $this->modx->getOption('ofdVatType', $this->properties, null);
 			$receipt->items[] = $ofdItem;
