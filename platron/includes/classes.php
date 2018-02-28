@@ -137,7 +137,6 @@ class CreatePaymentAction extends Action
 			'pg_lifetime' => $modx->getOption('lifetime', $scriptProperties, 0),
 			'pg_testing_mode' => $modx->getOption('testingMode', $scriptProperties, 0),
 			'pg_description' => $description,
-			//'pg_user_ip' => $_SERVER['REMOTE_ADDR'],
 			'pg_language' => $languageCode,
 			'pg_check_url' => $this->makeUrlById($modx->getOption('callbackPageId', $scriptProperties, null)),
 			'pg_result_url' => $this->makeUrlById($modx->getOption('callbackPageId', $scriptProperties, null)),
