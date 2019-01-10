@@ -185,7 +185,8 @@ class CreatePaymentAction extends Action
 			$ofdItem->price = round($order->get('delivery_price'), 2);
 			$ofdItem->quantity = 1;
 			$ofdItem->amount = $ofdItem->price;
-			$ofdItem->vat = '18';
+			$ofdItem->vat = '20';
+			$ofdItem->type = 'service';
 			$receipt->items[] = $ofdItem;
 		}
 		$receipt->prepare();
