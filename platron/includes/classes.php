@@ -213,7 +213,7 @@ class CreatePaymentAction extends Action
 
 	private function doRequest($scriptName, $params)
 	{
-		$response = $this->client->request(self::PLATRON_URL, $scriptName, 'POST', $params, array('contentType'=>'string'));
+		$response = $this->client->request(self::PLATRON_URL, $scriptName, 'POST', $params, array('contentType'=>'xml'));
 		try {
 			$responseXml = new SimpleXMLElement($response);
 		} catch (Exception $e) {
